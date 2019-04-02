@@ -1,5 +1,7 @@
 <?php
 
+require ('model/ModelEval02.php'); // Chargement du modèle
+
 $aData = [
     ['prenom' => 'Louise',  'note' => 16],
     ['prenom' => 'Emma',    'note' => 18],
@@ -28,6 +30,43 @@ if ( ($nNumExercice>0) && ($nNumExercice<=10) ) {
     }
 } else {
     die("exercice $nNumExercice inexistant");
+}
+
+function exercice01()
+{
+	global $aData;
+	echo "Exercice 01";
+	ajouterEleve( ['prenom'=>'Marie', 'note'=>14] );
+	print_r($aData);
+}
+
+function exercice02()
+{
+	echo "Exercice 02";
+	$aEmma = lireNote( 'Emma' );
+	echo $aEmma;
+}
+
+function exercice03()
+{
+	global $aData;
+	echo "Exercice 03";
+	supprimerEleve( 'Gabriel' );
+	print_r($aData);
+}
+
+function exercice04()
+{
+	global $aData;
+	echo "Exercice 04";
+	modifierNote( 'Manon' , 5);
+	print_r($aData);
+}
+
+function exercice05()
+{
+	global $aData;
+	ecrireCSV();
 }
 
 /*
